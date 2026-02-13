@@ -1,0 +1,49 @@
+<%- include("header") %>
+    <main>
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Welcome to Task Manager</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="container mt-5">
+                            <h2>All Tasks</h2>
+
+                            <% if (tasks.length===0) { %>
+                                <p> No tasks yet <a href="/create">Create one</a></p>
+                                <% } %>
+
+                                    <% tasks.forEach(task=> { %>
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%= task.title %>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <%= task.content %>
+                                                </p>
+                                                <small class="text-muted">
+                                                    by <%= task.user?.username || "Unknown" %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <% }) %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
